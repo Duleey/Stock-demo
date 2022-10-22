@@ -4,16 +4,8 @@
 # @Author  : jianwei.lv
 
 from util.query_BaoStock import QueryBaoStock
-from util.format_time import format_time
-#
-# qbs = QueryBaoStock()
-# qbs.get_kline_data(code='sz.000595',
-#                    start_time=format_time(-3), end_time=format_time(0),
-#                    fields="date,code,open,high,low,close,volume,turn")
-# res = qbs.print_rs()
-# print(res)
-#
-#
+from common.format_time import format_time
+
 # if res[-3][-1] > res[-2][-1] > res[-1][-1]:
 #     new_list = []
 #     for i in res:
