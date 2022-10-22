@@ -19,5 +19,5 @@ class StockManager:
 
 if __name__ == '__main__':
     sm = StockManager
-    # sm.stock_list = 123
+    sm.stock_list = 123
     print(sm.stock_list)
