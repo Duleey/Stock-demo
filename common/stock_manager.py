@@ -3,15 +3,13 @@
 # @Time    : 2021/11/21 4:35 下午
 # @Author  : jianwei.lv
 
-stock_list = ['sz']
-
 class StockManager:
 
-    __stock_list = []
+    s_list = ['sz.000595', 'sz.000534']
 
     @property
     def stock_list(self):
-        return __stock_list
+        return self.__stock_list
 
     @stock_list.setter
     def stock_list(self, value):
@@ -19,5 +17,5 @@ class StockManager:
 
 if __name__ == '__main__':
     sm = StockManager
-    # sm.stock_list = 123
+    sm.stock_list = sm.s_list
     print(sm.stock_list)
