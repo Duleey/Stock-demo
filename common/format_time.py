@@ -14,5 +14,19 @@ def format_time(t):
         yes = now + datetime.timedelta(days = t)
         return yes.strftime('%Y-%m-%d')
 
+def format_time_wc(t=0, start_time=None, fm="%Y.%m.%d"):
+    if start_time == None:
+        now = datetime.datetime.now()
+    elif start_time != None:
+        try:
+            now = datetime.datetime.strptime(start_time, fm)
+        except ValueError as e:
+            n_start_time = start_time.replace('.', '')
+            now = datetime.datetime.strptime(n_start_time, fm)
+    yes = now + datetime.timedelta(days=t)
+    return yes.strftime(fm)
+
+
 if __name__ == '__main__':
-    print(format_time(-1))
+    print(format_time_wc(-1, start_time="2022.10.30"))
+    print(datetime.datetime.now())
