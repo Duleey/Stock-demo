@@ -8,7 +8,7 @@ import os
 name = "wc"
 
 # 获取数据
-res = pywencai.getWencai(question='两连阴概念板块;2022.11.03涨幅；2日涨幅；2022.11.03换手率; 2022.11.04涨幅; 2022.11.04换手率',
+res = pywencai.getWencai(question='三连阴概念板块;2022.11.02涨幅;2022.11.03涨幅；2022.11.04涨幅;3日涨幅;2022.11.02换手率;2022.11.03换手率;  2022.11.04换手率',
                          secondary_intent='zhishu')
 result = pd.DataFrame(res)
 # 截取需要的列
