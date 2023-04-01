@@ -5,7 +5,7 @@ import common.os_paths as path
 import os
 
 
-name = "wc"
+name = "wc"1
 
 res = pywencai.getWencai(question='两连阴行业板块；1天前涨幅；2日涨幅', secondary_intent='zhishu', start_time=2022-10-10)
 
