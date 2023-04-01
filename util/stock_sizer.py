@@ -21,7 +21,7 @@ class Sizer:
     """
     code:股票代码
     t: -2为两连阴，-3为三连阴，默认-3
-    判断是否符合条件
+    判断是否连阴符合条件
     :return code
     """
     def if_turndown_oc(self, code, t=-3):
