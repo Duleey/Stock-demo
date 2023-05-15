@@ -4,7 +4,6 @@
 # @Author  : jianwei.lv
 
 import requests
-from bs4 import BeautifulSoup
 import json
 
 # 关注的博主用户名列表 https://xueqiu.com/u/8940371568
@@ -87,3 +86,5 @@ res = get_bloggers_status(bloggers)
 res1 = get_portfolios(portfolios)
 print(res)
 print(res1)
+
+# todo 导出为markdown格式
