@@ -81,18 +81,6 @@ def get_portfolios(portfolios):
             # 将结果列表转换为 JSON 格式
             return json.dumps(results)
 
-# 弃用
-def get_portfolios_insights(portfolios):
-    response = requests.get(portfolios_url, headers=headers)
-    soup = BeautifulSoup(response.text, "html.parser")
-
-    # 提取调仓提示内容并进行处理
-    insights = soup.select(".table__insight-content")
-    for insight in insights:
-        text = insight.get_text()
-        # 在这里可以添加自定义的处理逻辑，例如发送通知等
-        return text
-
 
 # 调用函数进行监控
 res = get_bloggers_status(bloggers)
