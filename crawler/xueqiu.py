@@ -11,7 +11,7 @@ bloggers = ["8940371568"]
 
 # 关注的组合列表 https://xueqiu.com/P/ZH1067274
 portfolios = {"ZH1067274": {
-    "rb_id": 138890721,
+    "rb_id": "138890721",
     "cube_symbol": "ZH1067274"
 }}
 
@@ -78,7 +78,7 @@ def get_portfolios(portfolios):
             # 将字典添加到结果列表中
             results.append(portfolio_dict)
             # 将结果列表转换为 JSON 格式
-            return json.dumps(results)
+        return json.dumps(results)
 
 
 # 调用函数进行监控
@@ -87,4 +87,34 @@ res1 = get_portfolios(portfolios)
 print(res)
 print(res1)
 
-# todo 导出为markdown格式
+# 定义Markdown文件名
+bloggers_file = "../CSV/bloggers.md"
+portfolios_file = "../CSV/portfolios.md"
+
+def write_to_markdown(file_name, content):
+    with open(file_name, "w", encoding="utf-8") as file:
+        file.write(content)
+
+# 调用函数进行监控
+res = get_bloggers_status(bloggers)
+res1 = get_portfolios(portfolios)
+
+# 定义Markdown文件名
+bloggers_file = "../CSV/bloggers.md"
+portfolios_file = "../CSV/portfolios.md"
+
+def write_to_markdown(file_name, content):
+    with open(file_name, "w", encoding="utf-8") as file:
+        file.write(content)
+
+# 将结果转换为Markdown格式
+markdown_content = "### Bloggers\n\n"
+markdown_content += "\n\n".join(res)
+
+# 写入Markdown文件
+write_to_markdown(bloggers_file, markdown_content)
+
+# 将结果转换为Markdown格式
+markdown_content = "### Portfolios\n\n"
+markdown_content += res1
+write_to_markdown(portfolios_file, markdown_content)
