@@ -33,19 +33,22 @@ def get_bloggers_status(bloggers, commit_time, page=1):
             url = bloggers_url.format(blogger_id, i)
             response = requests.get(url, headers=headers)
             data = response.json()
-            print(i)
-            print(url)
 
             # 提取发言内容并进行处理
             for item in data["statuses"]:
                 text = item["text"]
+                print(text)
                 description = item["description"]
+                print(description)
                 id = item["description"]
                 t = str(item['created_at'])
                 dt = datetime.fromtimestamp(int(t)/1000) # 将时间戳转换为datetime对象
                 formatted_time = dt.strftime('%Y-%m-%d %H:%M:%S')
                 if commit_time < formatted_time:
-                    texts.append(f"{formatted_time}:{text}")
+                    if text != "":
+                        texts.append(f"{formatted_time}:{text}")
+                    else:
+                        texts.append(f"{formatted_time}:{description}")
 
         # 定义Markdown文件名
         bloggers_file = "../CSV/Bloggers/{0}{1}.md".format(blogger, commit_time)
