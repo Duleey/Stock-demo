@@ -39,6 +39,8 @@ def get_bloggers_status(bloggers, commit_time, page=1):
             # 提取发言内容并进行处理
             for item in data["statuses"]:
                 text = item["text"]
+                description = item["description"]
+                id = item["description"]
                 t = str(item['created_at'])
                 dt = datetime.fromtimestamp(int(t)/1000) # 将时间戳转换为datetime对象
                 formatted_time = dt.strftime('%Y-%m-%d %H:%M:%S')
