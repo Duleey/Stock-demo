@@ -29,7 +29,7 @@ def get_bloggers_status(bloggers, commit_time, page=1):
     for blogger in bloggers:
         blogger_id = bloggers[blogger]
         for i in range(1, int(page)+1):
-            url = bloggers_url.format(blogger_id, page)
+            url = bloggers_url.format(blogger_id, i)
             response = requests.get(url, headers=headers)
             data = response.json()
 
@@ -46,7 +46,7 @@ def get_bloggers_status(bloggers, commit_time, page=1):
                     bloggers_file = "../CSV/Bloggers/{0}{1}.md".format(blogger, commit_time)
 
                     # 将结果转换为Markdown格式
-                    markdown_content = "### Bloggers\n\n"
+                    markdown_content = "### {}\n\n".format(blogger+commit_time)
                     markdown_content += "\n*********************************************************************************\n".join(
                         texts)
 
@@ -54,4 +54,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
                     with open(bloggers_file, "w", encoding="utf-8") as file:
                         file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-05-16')
+get_bloggers_status(bloggers=bloggers, commit_time='2023-05-15', page=3)
