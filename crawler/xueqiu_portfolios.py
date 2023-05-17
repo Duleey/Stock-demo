@@ -1,22 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2023/5/13 10:15 下午
+# @Time    : 2023/5/17 11:32 上午
 # @Author  : jianwei.lv
 
 import requests
 import json
-
-# 关注的博主用户名列表 https://xueqiu.com/u/8940371568
-bloggers = ["8940371568"]
+from datetime import datetime
 
 # 关注的组合列表 https://xueqiu.com/P/ZH1067274
 portfolios = {"ZH1067274": {
     "rb_id": "138890721",
     "cube_symbol": "ZH1067274"
 }}
-
-# 发言提示URL
-bloggers_url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page=1"
 
 # 调仓提示URL
 portfolios_url = "https://xueqiu.com/cubes/rebalancing/show_origin.json?rb_id={0}&cube_symbol={1}"
@@ -26,24 +21,6 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36",
     "Cookie": "device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; Hm_lvt_1db88642e346389874251b5a1eded6e3=1681639310,1681692930,1681693130,1681779457; snbim_minify=true; remember=1; xq_a_token=13d4c4747887c96b540faf6f35d64f5aaaa1c838; xqat=13d4c4747887c96b540faf6f35d64f5aaaa1c838; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNjg2NjY0NDY1LCJjdG0iOjE2ODQxMTE3MDg5MjEsImNpZCI6ImQ5ZDBuNEFadXAifQ.l1P8Oastt5csWhmNUR_-DmDg7rzr6A9WbkToUK33YNmeAu0mixLNFtpxY7Eir8hl4AfG7nrbYEMRbAXNsJYQ9qUMZsrP0MK6xgpv8x15DdQ0tMdB8aftT9xR0VO3BfwNKzg9JteyZUnrVt1yXp6x15vbRUNJ-_XjZPpJ5LkkVTqxWyY_t8JrDGq-Iog6bSZgboOjE8ocpW_Qa4hmR0DY5FFBZ4-M__7UwkvnSGh1GS6N9vE3KgHc3PVjxqZDBPq4qa3A6BVDXPb0cWFal9VnmqADlBNTNmfzu1uhA6j7lWYjB8TBF-WHhRREiKeCRjF2B-uGLge9X0UjgonwzvcWHA; xq_r_token=2656a2c4a38efe137c5821e5e9e963d206ca2b01; xq_is_login=1; u=3058190831; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1684144548; is_overseas=1"
 }
-
-
-def get_bloggers_status(bloggers):
-    descriptions = []
-    for blogger in bloggers:
-        url = bloggers_url.format(blogger)
-        response = requests.get(url, headers=headers)
-        data = response.json()
-
-        # 提取发言内容并进行处理
-        for item in data["statuses"]:
-            status_id = item["id"]
-            text = item["text"]
-            description = item["description"]
-            # 在这里可以添加自定义的处理逻辑，例如发送通知等
-            descriptions.append(description)
-    return descriptions
-
 
 def get_portfolios(portfolios):
     for portfolio in portfolios:
@@ -82,10 +59,7 @@ def get_portfolios(portfolios):
 
 
 # 调用函数进行监控
-res = get_bloggers_status(bloggers)
 res1 = get_portfolios(portfolios)
-print(res)
-print(res1)
 
 # 定义Markdown文件名
 bloggers_file = "../CSV/bloggers.md"
@@ -96,23 +70,15 @@ def write_to_markdown(file_name, content):
         file.write(content)
 
 # 调用函数进行监控
-res = get_bloggers_status(bloggers)
 res1 = get_portfolios(portfolios)
 
 # 定义Markdown文件名
-bloggers_file = "../CSV/bloggers.md"
 portfolios_file = "../CSV/portfolios.md"
 
 def write_to_markdown(file_name, content):
     with open(file_name, "w", encoding="utf-8") as file:
         file.write(content)
 
-# 将结果转换为Markdown格式
-markdown_content = "### Bloggers\n\n"
-markdown_content += "\n\n".join(res)
-
-# 写入Markdown文件
-write_to_markdown(bloggers_file, markdown_content)
 
 # 将结果转换为Markdown格式
 markdown_content = "### Portfolios\n\n"
