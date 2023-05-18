@@ -11,7 +11,6 @@ import time
 # 博主名：id
 bloggers = {
     "投研家": "8940371568",
-    "DatayesPro": "8287638557",
     "万得调研": "4198802945"
 }
 
@@ -38,18 +37,18 @@ def get_bloggers_status(bloggers, commit_time, page=1):
             for item in data["statuses"]:
                 text = item["text"]
                 description = item["description"]
-                id = item["description"]
+                target = "xueqiu.com/" + str(item["target"])
                 t = str(item['created_at'])
                 dt = datetime.fromtimestamp(int(t)/1000) # 将时间戳转换为datetime对象
                 formatted_time = dt.strftime('%Y-%m-%d %H:%M:%S')
                 if commit_time < formatted_time:
-                    if text != "":
+                    if len(text) > 2:
                         texts.append(f"{formatted_time}:{text}")
                     else:
-                        texts.append(f"{formatted_time}:{description}")
+                        texts.append(f"{formatted_time}:{description}:{[target]}")
 
         # 定义Markdown文件名
-        bloggers_file = "../CSV/Bloggers/{0}{1}.md".format(blogger, commit_time)
+        bloggers_file = "../CSV/Bloggers/xueqiu/{0}{1}.md".format(blogger, commit_time)
 
         # 将结果转换为Markdown格式
         markdown_content = "### {}\n\n".format(blogger+commit_time)
