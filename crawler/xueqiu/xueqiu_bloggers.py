@@ -61,4 +61,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-05-15', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2023-05-23', page=1)
