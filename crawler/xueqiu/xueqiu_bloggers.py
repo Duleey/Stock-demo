@@ -50,7 +50,7 @@ def get_bloggers_status(bloggers, commit_time, page=1):
                         texts.append(f"{formatted_time}:{description}\n[{target}]({target})")
 
         # 定义Markdown文件名
-        bloggers_file = "../CSV/Bloggers/xueqiu/{0}{1}.md".format(blogger, commit_time)
+        bloggers_file = "../CSV/xueqiu/Bloggers/{0}{1}.md".format(blogger, commit_time)
 
         # 将结果转换为Markdown格式
         markdown_content = "### {}\n\n".format(blogger+commit_time)
@@ -61,4 +61,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-05-23', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2023-05-24', page=1)
