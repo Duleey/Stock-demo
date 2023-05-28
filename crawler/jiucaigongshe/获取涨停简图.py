@@ -46,7 +46,7 @@ def get_res(date = '2023-05-26'):
 
 
 date = '2023-05-26'
-file_path = f'../../CSV/jiucaigongshe/ztjt/{date}'
+file_path = f'../../CSV/jiucaigongshe/ztjt/{date}.jpg'
 
 res = get_res(date)
 data = res.json()['data']
