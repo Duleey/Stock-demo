@@ -9,15 +9,16 @@ def get_res(date = '2023-05-26'):
         'SESSION': 'MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl',
         'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1684118309',
         'UM_distinctid': '1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1685172071',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1685689361',
     }
 
     headers = {
         'authority': 'app.jiuyangongshe.com',
         'accept': 'application/json, text/plain, */*',
         'accept-language': 'zh-CN,zh;q=0.9',
-        'content-type': 'application/json',
-        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1685172071',
+        # Already added when you pass json=
+        # 'content-type': 'application/json',
+        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1685689361',
         'origin': 'https://www.jiuyangongshe.com',
         'platform': '3',
         'referer': 'https://www.jiuyangongshe.com/',
@@ -27,8 +28,8 @@ def get_res(date = '2023-05-26'):
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-site',
-        'timestamp': '1685173083006',
-        'token': '92f92cc802d1a4890eeef9935074c6f5',
+        'timestamp': '1685689361989',
+        'token': 'bcc69a5d20738d03ad63d148c76777b1',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
     }
 
@@ -45,7 +46,7 @@ def get_res(date = '2023-05-26'):
     return response
 
 
-date = '2023-05-26'
+date = '2023-06-02'
 file_path = f'../../CSV/jiucaigongshe/ztjt/{date}.jpg'
 
 res = get_res(date)
