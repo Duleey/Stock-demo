@@ -15,7 +15,8 @@ bloggers = {
     "雪月霜": "1505944393",
     "飞鱼说周期": "8780715730",
     "投研与逻辑": "2852344450",
-    "寒山invest": "5441610555"
+    "寒山invest": "5441610555",
+    "雷雨季节": "1072107809"
 }
 
 # 发言提示URL
@@ -63,4 +64,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-05-30', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2023-06-12', page=1)

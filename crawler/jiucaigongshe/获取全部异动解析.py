@@ -9,7 +9,7 @@ def getRes(date='2023-05-27'):
         'SESSION': 'MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl',
         'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1684118309',
         'UM_distinctid': '1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1685689361',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1686568302',
     }
 
     headers = {
@@ -18,7 +18,7 @@ def getRes(date='2023-05-27'):
         'accept-language': 'zh-CN,zh;q=0.9',
         # Already added when you pass json=
         # 'content-type': 'application/json',
-        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1685689361',
+        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1686568302',
         'origin': 'https://www.jiuyangongshe.com',
         'platform': '3',
         'referer': 'https://www.jiuyangongshe.com/',
@@ -28,8 +28,8 @@ def getRes(date='2023-05-27'):
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-site',
-        'timestamp': '1685689361989',
-        'token': 'bcc69a5d20738d03ad63d148c76777b1',
+        'timestamp': '1686568302295',
+        'token': '629180b2a9e1b4a1217211952de797c3',
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
     }
 
@@ -47,7 +47,7 @@ def getRes(date='2023-05-27'):
 
     return response
 
-date = '2023-06-02'
+date = '2023-06-12'
 file_path = f'../../CSV/jiucaigongshe/ydjx/{date}.md'
 
 res = getRes(date=date)
