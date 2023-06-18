@@ -108,6 +108,6 @@ class WcManager:
                sanly_rename
 
 if __name__ == '__main__':
-    wc=WcManager(start_time="2022.11.04")
+    wc=WcManager(start_time="2023.06.18")
     a,b,c = wc.sanly()
     print(c)
