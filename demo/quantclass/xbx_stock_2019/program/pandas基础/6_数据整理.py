@@ -15,20 +15,19 @@ pd.set_option('expand_frame_repr', False)  # 当列太多时清楚展示
 
 # =====导入数据
 df = pd.read_csv(
-    r'C:\Users\simons\Desktop\xbx_stock_2019\data\a_stock_201903.csv',
-    encoding='gbk',
-    skiprows=1
+    r'/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019/data/a_stock_201903.csv',
+    encoding='gbk'
 )
 
 # =====排序函数
-# print(df.sort_values(by=['交易日期'], ascending=1))  # by参数指定按照什么进行排序，acsending参数指定是顺序还是逆序，1顺序，0逆序
+# print(df.sort_values(by=['交易日期'], ascending=0))  # by参数指定按照什么进行排序，acsending参数指定是顺序还是逆序，1顺序，0逆序
 # print(df.sort_values(by=['股票代码', '交易日期'], ascending=[1, 0]))  # 按照多列进行排序
 
 
 # =====两个df上下合并操作，append操作
 # df1 = df.iloc[0:10][['交易日期', '股票代码', '收盘价', '成交量']]
 # print(df1)
-# df2 = df.iloc[5:15][['交易日期', '股票代码', '收盘价', '成交量']]
+# df2 = df.iloc[5: 15][['交易日期', '股票代码', '收盘价', '成交量']]
 # print(df2)
 # print(df1.append(df2))  # append操作，将df1和df2上下拼接起来。注意观察拼接之后的index。index可以重复
 # df3 = df1.append(df2, ignore_index=True)  # ignore_index参数，用户重新确定index
@@ -47,18 +46,19 @@ df = pd.read_csv(
 
 
 # =====其他常用重要函数
-# df.reset_index(inplace=True, drop=True)  # 重置index
-# df.rename(columns={
-#     '收盘价': 'close',
-#     '开盘价': 'open',
-#     '股票代码': 'code',
-#     '股票名称': 'name',
-#     '交易日期': 'date',
-#     '最高价': 'high',
-#     '最低价': 'low',
-#     '前收盘价': 'prev_close',
-#     '成交量': 'volume',
-#     '成交额': 'money'}, inplace=True)  # rename函数给变量修改名字。使用dict将要修改的名字传给columns参数
+df.reset_index(inplace=True, drop=True)  # 重置index
+df.rename(columns={
+    '收盘价': 'close',
+    '开盘价': 'open',
+    '股票代码': 'code',
+    '股票名称': 'name',
+    '交易日期': 'date',
+    '最高价': 'high',
+    '最低价': 'low',
+    '前收盘价': 'prev_close',
+    '成交量': 'volume',
+    '成交额': 'money'}, inplace=True)  # rename函数给变量修改名字。使用dict将要修改的名字传给columns参数
+print(df)
 # print(df.empty)  # 判断一个df是不是为空，此处输出不为空
 # print(pd.DataFrame().empty)  # pd.DataFrame()创建一个空的DataFrame，此处输出为空
 # print(df.T)  # 将数据转置，行变成列，很有用

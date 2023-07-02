@@ -15,7 +15,7 @@ pd.set_option('expand_frame_repr', False)  # 当列太多时显示完整
 df = pd.read_csv(
     # 该参数为数据在电脑中的路径，
     # 要注意字符串转义符号 \ ，可以使用加r变为raw string或者每一个进行\\转义
-    filepath_or_buffer=r'C:\Users\simons\Desktop\xbx_stock_2019\data\sh600000.csv',
+    filepath_or_buffer=r'/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019/data/sh600000.csv',
     # 编码格式，不同的文件有不同的编码方式，一般文件中有中文的，编码是gbk，默认是utf8
     # ** 大家不用去特意记住很多编码，我们常用的就是gbk和utf8，切换一下看一下程序不报错就好了
     encoding='gbk',
@@ -31,10 +31,11 @@ df = pd.read_csv(
 # print(df['交易日期'] + ' 15:00:00')  # 字符串列可以直接加上字符串，对整列进行操作
 # print(df['收盘价'] * 100)  # 数字列直接加上或者乘以数字，对整列进行操作。
 # print(df[['收盘价', '成交量']])
-# print(df['收盘价'] * df['成交量'])  # 两列之间可以直接操作。收盘价*成交量计算出的是什么？
+# print(df['收盘价'] * df['成交量'])  # 两列之间可以直接操作。收盘价*成交量计算出的是什么？ 近似成交额
 # 新增一列
 # df['交易日期2'] = df['交易日期'] + ' 00:00:00'
 # df['交易所'] = '上交所'
+# print(df)
 
 # =====统计函数
 # print(df['收盘价'].mean())  # 求一整列的均值，返回一个数。会自动排除空值。
@@ -54,23 +55,27 @@ df = pd.read_csv(
 
 # =====shift类函数、删除列的方式
 # df['下周期收盘价'] = df['收盘价'].shift(-1)  # 读取上一行的数据，若参数设定为3，就是读取上三行的数据；若参数设定为-1，就是读取下一行的数据；
+# print(df[['收盘价', '下周期收盘价']])
 # del df['下周期收盘价']  # 删除某一列的方法
 
 # df['涨跌'] = df['收盘价'].diff(1)  # 求本行数据和上一行数据相减得到的值
+# print(df[['收盘价', '涨跌']])
 # df.drop(['涨跌'], axis=1, inplace=True)  # 删除某一列的另外一种方式，inplace参数指是否替代原来的df
 # df['涨跌幅'] = df['收盘价'].pct_change(1)  # 类似于diff，但是求的是两个数直接的比例，相当于求涨跌幅
+# print(df)
 
 # =====cum(cumulative)类函数
 # df['累计成交量'] = df['成交量'].cumsum()  # 该列的累加值
+# # print(df)
 # print(df[['交易日期', '成交量', '累计成交量','涨跌幅']])
 # print((df['涨跌幅'] + 1.0).cumprod())  # 该列的累乘值，此处计算的就是资金曲线，假设初始1元钱。
 
 
 # =====其他列函数
-# df['收盘价_排名'] = df['收盘价'].rank(ascending=True, pct=False)  # 输出排名。ascending参数代表是顺序还是逆序。pct参数代表输出的是排名还是排名比例
+# df['收盘价_排名'] = df['收盘价'].rank(ascending=True, pct=True)  # 输出排名。ascending参数代表是顺序还是逆序。pct参数代表输出的是排名还是排名比例
 # print(df[['收盘价', '收盘价_排名']])
 # del df['收盘价_排名']
-# print(df['收盘价'].value_counts())  # 计数。统计该列中每个元素出现的次数。返回的数据是Series
+print(df['收盘价'].value_counts())  # 计数。统计该列中每个元素出现的次数。返回的数据是Series
 
 # =====文档
 # 以上是我认为最常用的函数
