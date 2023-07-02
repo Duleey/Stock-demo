@@ -21,7 +21,7 @@ class QueryWc():
 
 if __name__ == '__main__':
     from common.wc_manager import WcManager
-    wcm = WcManager(start_time="2022.11.04")
+    wcm = WcManager(start_time="2023.06.18")
     qwc = QueryWc()
     question, colums, rename = wcm.liangly()
     qwc.wc_xls(question=question, name="lly", colums=colums, rename=rename)
