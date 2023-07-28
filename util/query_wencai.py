@@ -9,7 +9,7 @@ class QueryWc():
     def __init__(self):
         pass
 
-    def wc_xls(self, question, name, colums, rename,secondary_intent='zhishu'):
+    def wc_xls(self, question, name, colums, rename, secondary_intent='zhishu'):
         # 获取数据
         res = pywencai.getWencai(question=question, secondary_intent=secondary_intent)
         # 截取需要的列
@@ -20,8 +20,10 @@ class QueryWc():
         print("to_excel success to {}".format(os.path.join(path.CSV_PATH, name + '.xls')))
 
 if __name__ == '__main__':
-    from common.wc_manager import WcManager
-    wcm = WcManager(start_time="2023.06.18")
-    qwc = QueryWc()
-    question, colums, rename = wcm.liangly()
+    # from common.wc_manager import WcManager
+    # wcm = WcManager(start_time="2023.07.06")
+    # qwc = QueryWc()
+    # question, colums, rename = wcm.liangly()
+
+    question = '成交量超过20亿个股'
     qwc.wc_xls(question=question, name="lly", colums=colums, rename=rename)

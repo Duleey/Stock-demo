@@ -4,33 +4,37 @@
 # @Author  : jianwei.lv
 
 import requests
-def getRes(date='2023-05-27'):
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def getRes(date='2023-07-28'):
     cookies = {
-        'SESSION': 'MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1684118309',
+        'SESSION': 'OTI0YWZmZDMtNTE4OC00Y2M2LTkyYzYtZWIzNTcyMWVlYWI4',
         'UM_distinctid': '1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1686568302',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1689133256,1689509248,1689555723',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1690538250',
     }
 
     headers = {
-        'authority': 'app.jiuyangongshe.com',
-        'accept': 'application/json, text/plain, */*',
-        'accept-language': 'zh-CN,zh;q=0.9',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Connection': 'keep-alive',
         # Already added when you pass json=
-        # 'content-type': 'application/json',
-        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1686568302',
-        'origin': 'https://www.jiuyangongshe.com',
+        # 'Content-Type': 'application/json',
+
+        # 'Cookie': 'SESSION=OTI0YWZmZDMtNTE4OC00Y2M2LTkyYzYtZWIzNTcyMWVlYWI4; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1689133256,1689509248,1689555723; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1690538250',
+        'Origin': 'https://www.jiuyangongshe.com',
+        'Referer': 'https://www.jiuyangongshe.com/',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-site',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
         'platform': '3',
-        'referer': 'https://www.jiuyangongshe.com/',
-        'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-site',
-        'timestamp': '1686568302295',
-        'token': '629180b2a9e1b4a1217211952de797c3',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+        'timestamp': '1690538250942',
+        'token': 'b4918b2ab5b17d66acb559dae4b9d25e',
     }
 
     json_data = {
@@ -47,9 +51,10 @@ def getRes(date='2023-05-27'):
 
     return response
 
-date = '2023-06-12'
+date = '2023-07-28'
 file_path = f'../../CSV/jiucaigongshe/ydjx/{date}.md'
-
+csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}.csv'
+pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}.png'
 res = getRes(date=date)
 for v in res.json()['data']:
     if 'list' in v:
@@ -57,6 +62,9 @@ for v in res.json()['data']:
         for l in v['list']:
             code = l['code']
             stock_name = l['name']
+            time = l['article']['action_info']['time']
+            if time == '':
+                time = '没有涨停'
             expound = l['article']['action_info']['expound']
 
             # 打开一个新文件进行写入
@@ -65,9 +73,38 @@ for v in res.json()['data']:
                 f.write(f"## {title_name}\n\n")
                 f.write(f"###代码: {code}\n\n")
                 f.write(f"股票名称: {stock_name}\n\n")
+                f.write(f"涨停时间: {time}\n\n")
                 f.write(f"解释: {expound}\n\n")
+
+            # 导入一份csv,只有代码
+            with open(csv_path, "a") as f:
+                f.write(f"{code}\n\n")
     else:
         date = v['date']
         with open(file_path, "a") as f:
             # 将变量写入文件
             f.write(f"# {date}\n\n")
+
+# csv转图片
+# 读取CSV文件
+df = pd.read_csv(csv_path)
+
+# 创建一个空白的图表
+fig, ax = plt.subplots(figsize=(3, 25))
+
+# 隐藏坐标轴
+ax.axis('off')
+
+# 创建表格并填充数据
+table = ax.table(cellText=df.values, colLabels=df.columns, loc='center')
+
+# 设置表格样式
+table.auto_set_font_size(False)
+table.set_fontsize(10)
+table.scale(1.2, 1.2)
+
+# 保存图表为图片
+plt.savefig(pic_path)
+
+# 显示图表
+plt.show()
