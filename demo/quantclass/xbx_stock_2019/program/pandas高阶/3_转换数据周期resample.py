@@ -16,8 +16,8 @@ import pandas as pd
 pd.set_option('expand_frame_repr', False)  # 当列太多时显示完整
 
 # === 从hdf中读取1分钟数据
-df: pd.DataFrame = pd.read_hdf('a_stock_100.h5', key='sh600000')
-print(df.head(20))
+df: pd.DataFrame = pd.read_hdf('/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019/store/a_stock_100.h5', key='sh600000')
+# print(df)
 # exit()
 
 # 《数据周线转换示意图》
@@ -30,8 +30,8 @@ print(df.head(20))
 # 周期转换方法：resample
 # rule_type = '1W'  # rule='1W'：意思是一周，意味着转变为周线数据
 # period_df = df[['收盘价']].resample(rule=rule_type).last()  # last：取这一周的最后一行数据
-#
-# # 开、高、低的价格，成交量
+# #
+# # # 开、高、低的价格，成交量
 # period_df['开盘价'] = df['开盘价'].resample(rule=rule_type).first()
 # period_df['最高价'] = df['最高价'].resample(rule=rule_type).max()
 # period_df['最低价'] = df['最低价'].resample(rule=rule_type).min()
@@ -42,19 +42,19 @@ print(df.head(20))
 # exit()
 
 # === 第二种方法：将日线数据转为一周数据
-# rule_type = '1W'
-# period_df = df.resample(rule=rule_type, on='交易日期', base=0, label='left', closed='left').agg(
-#     {
-#         '开盘价': 'first',
-#         '最高价': 'max',
-#         '最低价': 'min',
-#         '收盘价': 'last',
-#         '成交量': 'sum',
-#     }
-# )
-# period_df = period_df[['开盘价', '最高价', '最低价', '收盘价', '成交量']]
-# print(period_df)
-# exit()
+rule_type = '1W'
+period_df = df.resample(rule=rule_type, on='交易日期', base=0, label='left', closed='left').agg(
+    {
+        '开盘价': 'first',
+        '最高价': 'max',
+        '最低价': 'min',
+        '收盘价': 'last',
+        '成交量': 'sum',
+    }
+)
+period_df = period_df[['开盘价', '最高价', '最低价', '收盘价', '成交量']]
+print(period_df)
+exit()
 # base参数：帮助确定转换周期开始的时间
 # label='left', closed='left'，建议统一设置成'left'
 

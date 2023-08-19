@@ -5,10 +5,14 @@ author：邢不行
 
 本节课讲解如何获取股票的最近的分钟K线数据
 """
+import ssl
 from urllib.request import urlopen  # python自带爬虫库
 import json  # python自带的json数据库
 from random import randint  # python自带的随机数库
 import pandas as pd
+ssl._create_default_https_context = ssl._create_unverified_context
+
+
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 pd.set_option('display.max_rows', 5000)  # 最多显示数据的行数
 

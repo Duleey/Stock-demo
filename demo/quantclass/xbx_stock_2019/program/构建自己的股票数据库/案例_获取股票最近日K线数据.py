@@ -5,10 +5,13 @@ author：邢不行
 
 本节课讲解如何获取股票的最近的日K线数据
 """
+import ssl
 from urllib.request import urlopen  # python自带爬虫库
 import json  # python自带的json数据库
 from random import randint  # python自带的随机数库
 import pandas as pd
+ssl._create_default_https_context = ssl._create_unverified_context
+
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 pd.set_option('display.max_rows', 5000)  # 最多显示数据的行数
 
@@ -33,16 +36,18 @@ def _random(n=16):
 
 # ===构建网址
 # 参数
-stock_code = 'sh000001'  # 正常股票sz000001，指数sh000001, ETF sh510500
+stock_code = 'sh600257'  # 正常股票sz000001，指数sh000001, ETF sh510500
 k_type = 'day'  # day, week, month分别对用日线、周线、月线
-num = 30000  # 股票最多不能超过640，指数、etf等没有限制
+num = 640  # 股票最多不能超过640，指数、etf等没有限制
 
 # 构建url
 url = 'http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?_var=kline_%sqfq&param=%s,%s,,,%s,qfq&r=0.%s'
 url = url % (k_type, stock_code, k_type, num, _random())
 
+
 # ===获取数据
 content = urlopen(url).read().decode()  # 使用python自带的库，从网络上获取信息
+
 
 # ===将数据转换成dict格式
 content = content.split('=', maxsplit=1)[-1]
@@ -68,7 +73,7 @@ if 'info' not in df:
     df['info'] = None
 df = df[['candle_end_time', 'open', 'high', 'low', 'close', 'amount', 'info']]
 print(df)
-df.to_csv('sh000001.csv', index=False)
+df.to_csv('sh600257.csv', index=False)
 # ===考察其他周期、指数、ETF
 
 # ===考察特殊情况

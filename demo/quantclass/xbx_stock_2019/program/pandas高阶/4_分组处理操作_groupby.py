@@ -18,9 +18,10 @@ pd.set_option('expand_frame_repr', False)  # 当列太多时显示完整
 
 # =====导入数据
 df = pd.read_csv(
-    r'C:\Users\Simons\Desktop\xbx_stock_2019\data\a_stock_201903.csv',
+    r'/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019/data/a_stock_201903.csv',
     encoding='gbk',
-    skiprows=1
+    # skiprows=1
+    index_col=['股票代码']
 )
 
 # print(df)
@@ -69,8 +70,8 @@ df = pd.read_csv(
 # df['交易日期'] = pd.to_datetime(df['交易日期'])
 # df.loc[df['交易日期'].dt.day < 15, '月份'] = '上旬'
 # df['月份'].fillna(value='下旬', inplace=True)
-# print(df)
-
+# # print(df)
+#
 # print(df.groupby(['股票代码', '月份']).size())
 
 
@@ -81,9 +82,9 @@ df = pd.read_csv(
 # 遍历group，对每个group进行单独操作，然后将这些group合并起来。
 # 语法：for key, group in df.groupby('列名'):
 
-# for code, group in df.groupby('股票代码'):
-#     print(code)
-#     print(group)
+for code, group in df.groupby('股票代码'):
+    print(code)
+    print(group)
 
 # 以下可以对各个group进行任意操作。
 # group.fillna()

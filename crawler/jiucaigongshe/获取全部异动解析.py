@@ -21,8 +21,7 @@ def getRes(date='2023-07-28'):
         'Connection': 'keep-alive',
         # Already added when you pass json=
         # 'Content-Type': 'application/json',
-
-        # 'Cookie': 'SESSION=OTI0YWZmZDMtNTE4OC00Y2M2LTkyYzYtZWIzNTcyMWVlYWI4; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1689133256,1689509248,1689555723; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1690538250',
+        # 'Cookie': 'SESSION=OTI0YWZmZDMtNTE4OC00Y2M2LTkyYzYtZWIzNTcyMWVlYWI4; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1689133256,1689509248,1689555723; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1690882750',
         'Origin': 'https://www.jiuyangongshe.com',
         'Referer': 'https://www.jiuyangongshe.com/',
         'Sec-Fetch-Dest': 'empty',
@@ -33,8 +32,8 @@ def getRes(date='2023-07-28'):
         'sec-ch-ua': '"Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'timestamp': '1690538250942',
-        'token': 'b4918b2ab5b17d66acb559dae4b9d25e',
+        'timestamp': '1690882750191',
+        'token': 'd999e3a241b92ea963b6c65202226240',
     }
 
     json_data = {
@@ -51,7 +50,7 @@ def getRes(date='2023-07-28'):
 
     return response
 
-date = '2023-07-28'
+date = '2023-08-03'
 file_path = f'../../CSV/jiucaigongshe/ydjx/{date}.md'
 csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}.csv'
 pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}.png'

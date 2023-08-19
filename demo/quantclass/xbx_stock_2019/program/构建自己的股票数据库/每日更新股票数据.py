@@ -70,6 +70,7 @@ def getStockCodeForEveryday():
         time.sleep(3)
         df = df.append(pd.DataFrame(content, dtype='float'), ignore_index=True)
         page += 1
+        break
 
     rename_dict = {'symbol': '股票代码', 'code': '交易日期', 'name': '股票名称', 'open': '开盘价',
                    'settlement': '前收盘价', 'trade': '收盘价', 'high': '最高价', 'low': '最低价',
@@ -97,8 +98,9 @@ for i in df.index:
     stock_code = t.iloc[0]['股票代码']
 
     # 构建存储文件路径
-    path = './data/' \
-           + stock_code + '.csv'
+    # path = './data/' \
+    #        + stock_code + '.csv'
+    path = '/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019/program/构建自己的股票数据库/test_data/' + stock_code + '.csv'
     # 文件存在，不是新股
     if os.path.exists(path):
         t.to_csv(path, header=None, index=False, mode='a', encoding='gbk')
