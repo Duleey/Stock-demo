@@ -3,6 +3,7 @@
 # @Time    : 2023/5/27 3:49 下午
 # @Author  : jianwei.lv
 
+import numpy as np
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -66,39 +67,44 @@ def csv_to_png(csv_path,title_name,date):
     # 创建一个空白的图表
     fig, axs = plt.subplots(num_batches, 1, figsize=(3, 15))
 
-    # 隐藏坐标轴
-    for ax in axs:
+    # Flatten the axs array using numpy
+    axs_flat = np.ravel(axs)
+
+    # Iterate through the flattened array
+    for ax in axs_flat:
         ax.axis('off')
 
-    # 分批创建表格并填充数据
-    for i in range(num_batches):
-        start_index = i * batch_size
-        end_index = min((i + 1) * batch_size, total_rows)
-        batch_data = df.values[start_index:end_index]
-        print(batch_data)
-        print(len(batch_data))
-        print('-----------------')
+    try:
+        # 遍历每个批次
+        for i in range(num_batches):
+            start_index = i * batch_size
+            end_index = min((i + 1) * batch_size, total_rows)
+            batch_data = df.values[start_index:end_index]
+            print(f"Batch {i + 1} data: {batch_data}")
 
-        # 在对应的子图表中创建表格
-        table = axs[i].table(cellText=batch_data, colLabels=df.columns, loc='center')
+            # 为每个批次创建一个新的子图
+            ax = fig.add_subplot(num_batches, 1, i+1)
+            ax.axis('off')
 
-        # 设置表格样式
-        table.auto_set_font_size(False)
-        table.set_fontsize(10)
-        table.scale(1.2, 1.2)
+            # 在子图中创建表格
+            table = ax.table(cellText=batch_data, colLabels=df.columns, loc='center')
 
-        # 保存图表为图片
-        batch_pic_path = f'../../CSV/jiucaigongshe/ydjx/{title_name}-{date}_batch{i + 1}.png'
-        plt.savefig(batch_pic_path)
+            # 设置表格样式
+            table.auto_set_font_size(False)
+            table.set_fontsize(10)
+            table.scale(1.2, 1.2)
 
-        # 清除图表内容
-        table.remove()
+            # 将子图保存为图片
+            batch_pic_path = f'../../CSV/jiucaigongshe/ydjx/{title_name}{date}_batch{i + 1}.png'
+            plt.savefig(batch_pic_path)
 
-    # 关闭图表
-    plt.close()
+            # 清除子图内容
+            table.remove()
 
-    # 显示图表
-    plt.show()
+        # 关闭图表
+        plt.close()
+    except IndexError:
+        print(IndexError)
 
 
 date = '2023-11-21'
@@ -121,9 +127,12 @@ for v in res.json()['data']:
                 time = '没有涨停'
             expound = l['article']['action_info']['expound']
 
+            # 依次比对，提取每个大类并存入md
             if title_name != title_check:
                 title_check = title_name
             with open(f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.md', "a+") as f:
+                # if code[:2] == 'bj':
+                #     code = code[2:]
                 # 将变量写入文件
                 f.write(f"## {title_name}\n\n")
                 f.write(f"###代码: {code}\n\n")
@@ -131,7 +140,14 @@ for v in res.json()['data']:
                 f.write(f"涨停时间: {time}\n\n")
                 f.write(f"解释: {expound}\n\n")
 
-            # 打开一个新文件进行写入
+            with open(f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.csv', "a") as f:
+                f.write(f"{code}\n\n")
+
+            csv_to_png(csv_path=f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.csv',
+                       title_name=title_check,
+                       date=date)
+
+            # 将所有类型写入一个文件
             with open(file_path, "a") as f:
                 # 将变量写入文件
                 f.write(f"## {title_name}\n\n")
@@ -139,8 +155,6 @@ for v in res.json()['data']:
                 f.write(f"股票名称: {stock_name}\n\n")
                 f.write(f"涨停时间: {time}\n\n")
                 f.write(f"解释: {expound}\n\n")
-
-            csv_to_png(csv_path=f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.md', title_name=title_check, date=date)
 
             # 导入一份csv,只有代码
             with open(csv_path, "a") as f:
@@ -151,54 +165,6 @@ for v in res.json()['data']:
             # 将变量写入文件
             f.write(f"# {date}\n\n")
 
-csv_to_png(csv_path=csv_path, title_name="all", date=date)
 
-# # csv转图片
-# # 读取CSV文件
-# df = pd.read_csv(csv_path)
-#
-# # 每批数据的大小
-# batch_size = 30
-#
-# # 数据总行数
-# total_rows = len(df)
-#
-# # 计算需要分成多少批次
-# num_batches = total_rows // batch_size + 1
-#
-# # 创建一个空白的图表
-# fig, axs = plt.subplots(num_batches, 1, figsize=(3, 15))
-#
-# # 隐藏坐标轴
-# for ax in axs:
-#     ax.axis('off')
-#
-# # 分批创建表格并填充数据
-# for i in range(num_batches):
-#     start_index = i * batch_size
-#     end_index = min((i + 1) * batch_size, total_rows)
-#     batch_data = df.values[start_index:end_index]
-#     print(batch_data)
-#     print(len(batch_data))
-#     print('-----------------')
-#
-#     # 在对应的子图表中创建表格
-#     table = axs[i].table(cellText=batch_data, colLabels=df.columns, loc='center')
-#
-#     # 设置表格样式
-#     table.auto_set_font_size(False)
-#     table.set_fontsize(10)
-#     table.scale(1.2, 1.2)
-#
-#     # 保存图表为图片
-#     batch_pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}_batch{i + 1}.png'
-#     plt.savefig(batch_pic_path)
-#
-#     # 清除图表内容
-#     table.remove()
-#
-# # 关闭图表
-# plt.close()
-#
-# # 显示图表
-# plt.show()
+csv_to_png(csv_path=csv_path, title_name="所有", date=date)
+
