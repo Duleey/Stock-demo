@@ -31,7 +31,10 @@ bloggers = {
     "鲨鱼哥的视频逻辑": "7447535920",
     "无心0000": "250386640",
     "无鸣之辈-阿飞": "4253976756",
-    "本股神": "1819336967"
+    "本股神": "1819336967",
+    "轮回666": "8282709675",
+    "疯狂梭哈哥": "8282709675",
+    "rtu8": "2759777767"
 }
 
 # 发言提示URL
@@ -114,4 +117,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-11-23', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2023-11-29', page=1)

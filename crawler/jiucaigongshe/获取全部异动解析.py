@@ -9,10 +9,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def getRes(date='2023-07-28'):
+
     cookies = {
-        'UM_distinctid': '1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1692837497,1693643715',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1694501687',
+        'SESSION': 'MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi',
+        'UM_distinctid': '18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1699866830,1701078478',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1701594340',
     }
 
     headers = {
@@ -21,7 +23,7 @@ def getRes(date='2023-07-28'):
         'Connection': 'keep-alive',
         # Already added when you pass json=
         # 'Content-Type': 'application/json',
-        # 'Cookie': 'SESSION=M2NiMTVhYmItZDNhMy00M2Q1LTk2Y2EtNDMxZjk3ODhkNmU1; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1700473168',
+        # 'Cookie': 'SESSION=MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830,1701078478; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1701594340',
         'Origin': 'https://www.jiuyangongshe.com',
         'Referer': 'https://www.jiuyangongshe.com/',
         'Sec-Fetch-Dest': 'empty',
@@ -32,8 +34,8 @@ def getRes(date='2023-07-28'):
         'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'timestamp': '1700473176144',
-        'token': 'e1e185c7a762add216f621e113cfcf7a',
+        'timestamp': '1701594340012',
+        'token': 'c8ab52d8bd6abe795de31ada0cf239cc',
     }
 
     json_data = {
@@ -107,7 +109,7 @@ def csv_to_png(csv_path,title_name,date):
         print(IndexError)
 
 
-date = '2023-11-21'
+date = '2023-12-01'
 file_path = f'../../CSV/jiucaigongshe/ydjx/{date}.md'
 csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}.csv'
 pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}.png'
