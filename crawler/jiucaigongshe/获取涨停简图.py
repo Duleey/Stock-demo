@@ -4,34 +4,39 @@
 # @Author  : jianwei.lv
 
 import requests
+import os
+
 def get_res(date = '2023-05-26'):
     cookies = {
-        'SESSION': 'MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1684118309',
-        'UM_distinctid': '1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1686568302',
+        'SESSION': 'MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi',
+        'UM_distinctid': '18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1699866830,1701078478,1702021135',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1702027138',
     }
 
     headers = {
-        'authority': 'app.jiuyangongshe.com',
-        'accept': 'application/json, text/plain, */*',
-        'accept-language': 'zh-CN,zh;q=0.9',
-        # Already added when you pass json=
-        # 'content-type': 'application/json',
-        # 'cookie': 'SESSION=MzZkMTUwZjItNDkxZS00MzljLTg2NDYtOWU5ZmI5MGFjZDJl; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1684118309; UM_distinctid=1881d460b2abea-0c50716c2d2f99-1d525634-1fa400-1881d460b2bfa4; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1686568302',
-        'origin': 'https://www.jiuyangongshe.com',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/json',
+        # 'Cookie': 'SESSION=MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830,1701078478,1702021135; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1702027138',
+        'Origin': 'https://www.jiuyangongshe.com',
+        'Referer': 'https://www.jiuyangongshe.com/',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-site',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         'platform': '3',
-        'referer': 'https://www.jiuyangongshe.com/',
-        'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-site',
-        'timestamp': '1686568302295',
-        'token': '629180b2a9e1b4a1217211952de797c3',
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+        'timestamp': '1702027138372',
+        'token': 'ec3b573c4a2d8ac91f9fadb2c026b17f',
     }
+
+    # 在目录不存在时创建该目录，如果目录已经存在，则不会执行任何操作。
+    directory = f'../../CSV/jiucaigongshe/ztjt/{date}'
+    os.makedirs(directory, exist_ok=True)
 
     json_data = {
         'date': date,
@@ -46,8 +51,8 @@ def get_res(date = '2023-05-26'):
     return response
 
 
-date = '2023-06-12'
-file_path = f'../../CSV/jiucaigongshe/ztjt/{date}.jpg'
+date = '2023-12-08'
+file_path = f'../../CSV/jiucaigongshe/ztjt/{date}/{date}.jpg'
 
 res = get_res(date)
 data = res.json()['data']

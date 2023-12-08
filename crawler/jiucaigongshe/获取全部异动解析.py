@@ -7,23 +7,22 @@ import numpy as np
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 def getRes(date='2023-07-28'):
-
     cookies = {
         'SESSION': 'MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi',
         'UM_distinctid': '18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1699866830,1701078478',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1701594340',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1699866830,1701078478,1702021135',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1702027138',
     }
 
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
-        # Already added when you pass json=
-        # 'Content-Type': 'application/json',
-        # 'Cookie': 'SESSION=MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830,1701078478; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1701594340',
+        'Content-Type': 'application/json',
+        # 'Cookie': 'SESSION=MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830,1701078478,1702021135; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1702027138',
         'Origin': 'https://www.jiuyangongshe.com',
         'Referer': 'https://www.jiuyangongshe.com/',
         'Sec-Fetch-Dest': 'empty',
@@ -34,8 +33,8 @@ def getRes(date='2023-07-28'):
         'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'timestamp': '1701594340012',
-        'token': 'c8ab52d8bd6abe795de31ada0cf239cc',
+        'timestamp': '1702027138372',
+        'token': 'ec3b573c4a2d8ac91f9fadb2c026b17f',
     }
 
     json_data = {
@@ -82,7 +81,7 @@ def csv_to_png(csv_path,title_name,date):
             start_index = i * batch_size
             end_index = min((i + 1) * batch_size, total_rows)
             batch_data = df.values[start_index:end_index]
-            print(f"Batch {i + 1} data: {batch_data}")
+            # print(f"Batch {i + 1} data: {batch_data}")
 
             # 为每个批次创建一个新的子图
             ax = fig.add_subplot(num_batches, 1, i+1)
@@ -97,7 +96,7 @@ def csv_to_png(csv_path,title_name,date):
             table.scale(1.2, 1.2)
 
             # 将子图保存为图片
-            batch_pic_path = f'../../CSV/jiucaigongshe/ydjx/{title_name}{date}_batch{i + 1}.png'
+            batch_pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{title_name}{date}_batch{i + 1}.png'
             plt.savefig(batch_pic_path)
 
             # 清除子图内容
@@ -109,17 +108,23 @@ def csv_to_png(csv_path,title_name,date):
         print(IndexError)
 
 
-date = '2023-12-01'
-file_path = f'../../CSV/jiucaigongshe/ydjx/{date}.md'
-csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}.csv'
-pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}.png'
+date = '2023-12-08'
+file_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.md'
+csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.csv'
+pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.png'
 res = getRes(date=date)
 
 title_check = "check"
 
+# 在目录不存在时创建该目录，如果目录已经存在，则不会执行任何操作。
+directory = f'../../CSV/jiucaigongshe/ydjx/{date}'
+os.makedirs(directory, exist_ok=True)
 
 for v in res.json()['data']:
     if 'list' in v:
+        if '/' in v['name']:
+            store = v['name'].replace("/", "&")
+            v['name'] = store
         title_name = v['name']
         for l in v['list']:
             code = l['code']
@@ -132,7 +137,8 @@ for v in res.json()['data']:
             # 依次比对，提取每个大类并存入md
             if title_name != title_check:
                 title_check = title_name
-            with open(f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.md', "a+") as f:
+
+            with open(f'../../CSV/jiucaigongshe/ydjx/{date}/{title_check}{date}.md', "a+") as f:
                 # if code[:2] == 'bj':
                 #     code = code[2:]
                 # 将变量写入文件
@@ -142,10 +148,10 @@ for v in res.json()['data']:
                 f.write(f"涨停时间: {time}\n\n")
                 f.write(f"解释: {expound}\n\n")
 
-            with open(f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.csv', "a") as f:
+            with open(f'../../CSV/jiucaigongshe/ydjx/{date}/{title_check}{date}.csv', "a") as f:
                 f.write(f"{code}\n\n")
 
-            csv_to_png(csv_path=f'../../CSV/jiucaigongshe/ydjx/{title_check}{date}.csv',
+            csv_to_png(csv_path=f'../../CSV/jiucaigongshe/ydjx/{date}/{title_check}{date}.csv',
                        title_name=title_check,
                        date=date)
 
@@ -166,7 +172,6 @@ for v in res.json()['data']:
         with open(file_path, "a") as f:
             # 将变量写入文件
             f.write(f"# {date}\n\n")
-
 
 csv_to_png(csv_path=csv_path, title_name="所有", date=date)
 

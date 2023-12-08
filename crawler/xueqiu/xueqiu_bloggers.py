@@ -6,6 +6,7 @@
 import requests
 from datetime import datetime
 import time
+import os
 
 # 关注的博主用户名列表 https://xueqiu.com/u/8940371568
 # 博主名：id
@@ -36,7 +37,14 @@ bloggers = {
     "疯狂梭哈哥": "8282709675",
     "rtu8": "2759777767",
     "慢而坚定-杯柄vcp": "9998407395",
-    "zk0325": "2125333315"
+    "zk0325": "2125333315",
+    "小小草008": "4198283442",
+    "冰冰小美": "7143769715",
+    "游资呼家楼": "7734132744",
+    "交易逻辑掌门": "2543519410",
+    "准九": "4279190191",
+    "TDK168": "3463940412",
+    "好习惯受用终生": "4015596010"
 }
 
 # 发言提示URL
@@ -47,34 +55,32 @@ cookies = {
     'device_id': 'b113b3700ba6f60d2c110d9a9374ab5a',
     's': 'c81992ym9d',
     'bid': 'f2482796a6eda57a039c2760d1448818_lfgoelhg',
-    '__utmz': '1.1679307632.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
     'cookiesu': '251692352267798',
     'u': '3058190831',
-    'xq_is_login': '1',
-    'xq_a_token': '385c56b4e59770790d2247eafc862225acdb5ec8',
-    'xqat': '385c56b4e59770790d2247eafc862225acdb5ec8',
-    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAyNTM5NTUyLCJjdG0iOjE2OTk5NDc1NTIxMTgsImNpZCI6ImQ5ZDBuNEFadXAifQ.XeViKuPpfkjZarNz-IUmhJ1jkOk5lSFc1v8dKB5hxL37JS7Xgb63EWDVghKjfPRAdW4iHCpikSCJFwa1-iC7RGBQfLjrQqO7NYIB-ZI8YlfcmxrhlDxNSMPgjcvZwYc6E_CxFopxHawN9zBfrLcAuZMFFQVQ2ooMZA2SIDBwgHBJJIktKmbwJueEcf7AdNvZw3x5vEe-KfLsBfcgnyffPpKvct4J8rVQNGXceQZ1SlS6cFZIg7e6CRErOyE7nl7yQPwrMqabQJdFhi-UNwekrNrjMqqH2opfQIMNcgYGvXAlQabOZ0u2P1bdg5xgDW06yAbR6UU_xH-qu49lKlDuxg',
-    'xq_r_token': 'e582d7d935fe508a65c8967a588fb3c2acb8a4d3',
-    '__utma': '1.1859006477.1679307632.1697616458.1700647838.84',
-    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1698644247,1700699665',
-    'acw_tc': '2760779117007242621364913eb7b2720911cf4a0eca0f126e2221064fae47',
-    'is_overseas': '0',
-    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1700724265',
     'snbim_minify': 'true',
+    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1700699665',
+    'remember': '1',
+    'xq_a_token': 'dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec',
+    'xqat': 'dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec',
+    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAzODYyNDA2LCJjdG0iOjE3MDEzOTE3MjA4MDgsImNpZCI6ImQ5ZDBuNEFadXAifQ.jGdjTHxFFUQ5dkWOThoX2qTMCP9hI9n-mjKutUGa_iRPI8cLJCkugD69gs5v_T92iokJe2tPU6f6xdlHmexyCbVopT-UvX54I7TS7OWBk3CRFS34kY1l78pEfo0tKADp3abWgGqf8mb8ooW5dZo9XgSqSDjDYlmOypQ9FkLaaDazCKUiPe5uDQKpllS4gED2z9EJUhicH_0QZqvytGInhAtRcGaYc6Mv0r3OHwpItYBvqTSZOvhLq4MF-sG2F5Bk0lveSDDNowz3_D6L0kD32tqbgpOfttZOTqLmv6iphw9X1WeWXqOS-kL-kiXIi8zQ3tPtZOOM7KlR8V7JdHH69A',
+    'xq_r_token': '299f3b472218c80e451f65212a32220bc11bfaa4',
+    'xq_is_login': '1',
+    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1701677658',
+    'acw_tc': '0bd17c4a17016806424312082ed76a6de460e9a25e1ef7596eddc6c393253c',
+    'is_overseas': '0',
 }
 
 headers = {
-    'Accept': '*/*',
+    'Accept': 'application/json, text/plain, */*',
     'Accept-Language': 'zh-CN,zh;q=0.9',
     'Connection': 'keep-alive',
-    # 'Cookie': 'device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; __utmz=1.1679307632.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); cookiesu=251692352267798; u=3058190831; xq_is_login=1; xq_a_token=385c56b4e59770790d2247eafc862225acdb5ec8; xqat=385c56b4e59770790d2247eafc862225acdb5ec8; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAyNTM5NTUyLCJjdG0iOjE2OTk5NDc1NTIxMTgsImNpZCI6ImQ5ZDBuNEFadXAifQ.XeViKuPpfkjZarNz-IUmhJ1jkOk5lSFc1v8dKB5hxL37JS7Xgb63EWDVghKjfPRAdW4iHCpikSCJFwa1-iC7RGBQfLjrQqO7NYIB-ZI8YlfcmxrhlDxNSMPgjcvZwYc6E_CxFopxHawN9zBfrLcAuZMFFQVQ2ooMZA2SIDBwgHBJJIktKmbwJueEcf7AdNvZw3x5vEe-KfLsBfcgnyffPpKvct4J8rVQNGXceQZ1SlS6cFZIg7e6CRErOyE7nl7yQPwrMqabQJdFhi-UNwekrNrjMqqH2opfQIMNcgYGvXAlQabOZ0u2P1bdg5xgDW06yAbR6UU_xH-qu49lKlDuxg; xq_r_token=e582d7d935fe508a65c8967a588fb3c2acb8a4d3; __utma=1.1859006477.1679307632.1697616458.1700647838.84; Hm_lvt_1db88642e346389874251b5a1eded6e3=1698644247,1700699665; acw_tc=2760779117007242621364913eb7b2720911cf4a0eca0f126e2221064fae47; is_overseas=0; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1700724265; snbim_minify=true',
+    # 'Cookie': 'device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; cookiesu=251692352267798; u=3058190831; snbim_minify=true; Hm_lvt_1db88642e346389874251b5a1eded6e3=1700699665; remember=1; xq_a_token=dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec; xqat=dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAzODYyNDA2LCJjdG0iOjE3MDEzOTE3MjA4MDgsImNpZCI6ImQ5ZDBuNEFadXAifQ.jGdjTHxFFUQ5dkWOThoX2qTMCP9hI9n-mjKutUGa_iRPI8cLJCkugD69gs5v_T92iokJe2tPU6f6xdlHmexyCbVopT-UvX54I7TS7OWBk3CRFS34kY1l78pEfo0tKADp3abWgGqf8mb8ooW5dZo9XgSqSDjDYlmOypQ9FkLaaDazCKUiPe5uDQKpllS4gED2z9EJUhicH_0QZqvytGInhAtRcGaYc6Mv0r3OHwpItYBvqTSZOvhLq4MF-sG2F5Bk0lveSDDNowz3_D6L0kD32tqbgpOfttZOTqLmv6iphw9X1WeWXqOS-kL-kiXIi8zQ3tPtZOOM7KlR8V7JdHH69A; xq_r_token=299f3b472218c80e451f65212a32220bc11bfaa4; xq_is_login=1; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1701677658; acw_tc=0bd17c4a17016806424312082ed76a6de460e9a25e1ef7596eddc6c393253c; is_overseas=0',
+    'Origin': 'https://xueqiu.com',
     'Referer': 'https://xueqiu.com/',
     'Sec-Fetch-Dest': 'empty',
     'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Site': 'same-site',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-    'X-Requested-With': 'XMLHttpRequest',
-    'elastic-apm-traceparent': '00-433c053faa6606229e132fc69ff4896b-e5f701e04597021b-00',
     'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"',
@@ -106,9 +112,12 @@ def get_bloggers_status(bloggers, commit_time, page=1):
             except KeyError:
                 print(blogger)
 
+        # 在目录不存在时创建该目录，如果目录已经存在，则不会执行任何操作。
+        directory = f'../../CSV/xueqiu/Bloggers/{0}'.format(commit_time)
+        os.makedirs(directory, exist_ok=True)
 
         # 定义Markdown文件名
-        bloggers_file = "../../CSV/xueqiu/Bloggers/{0}{1}.md".format(blogger, commit_time)
+        bloggers_file = "../../CSV/xueqiu/Bloggers/{2}/{0}{1}.md".format(blogger, commit_time, commit_time)
 
         # 将结果转换为Markdown格式
         markdown_content = "### {}\n\n".format(blogger+commit_time)
@@ -119,4 +128,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-11-29', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2023-12-08', page=1)
