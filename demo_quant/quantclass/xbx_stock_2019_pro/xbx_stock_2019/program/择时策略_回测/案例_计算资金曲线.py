@@ -12,13 +12,14 @@ pd.set_option('display.max_rows', 5000)  # 最多显示数据的行数
 
 
 # =====导入数据
-df = pd.read_hdf('/demo_quant/quantclass/xbx_stock_2019-pro/xbx_stock_2019/data/择时策略-回测/pos.h5', key='df')
+df = pd.read_hdf('/Users/lvjianwei/Desktop/workspace/stock/Stock-demo/demo_quant/quantclass/xbx_stock_2019_pro/xbx_stock_2019/data/择时策略-回测/pos.h5', key='df')
 
 # =====选取相关时间。
 # 截取上市一年之后的数据
 df = df.iloc[250-1:]  # 股市一年交易日大约250天
 # 截图2007年之后的数据
 df = df[df['交易日期'] >= pd.to_datetime('20070101')]
+
 
 # =====找出开仓、平仓条件
 condition1 = df['pos'] != 0
@@ -91,7 +92,7 @@ df['equity_change'] = df['net_value'].pct_change(fill_method=None)
 df.loc[open_pos_condition, 'equity_change'] = df.loc[open_pos_condition, 'net_value'] / initial_cash - 1  # 开仓日的收益率
 df['equity_change'].fillna(value=0, inplace=True)
 df['equity_curve'] = (1 + df['equity_change']).cumprod()
-
+# print(df)
 # ===删除无关数据
 df.drop(['start_time', 'stock_num', 'cash', 'stock_value', 'net_value'], axis=1, inplace=True)
 

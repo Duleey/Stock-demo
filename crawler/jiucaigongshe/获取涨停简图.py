@@ -8,30 +8,31 @@ import os
 
 def get_res(date = '2023-05-26'):
     cookies = {
-        'SESSION': 'MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi',
+        'SESSION': 'OTFiNmJhYTQtNWM3Yy00M2E4LWI5ZDUtNWVhYWYxYThmN2Mx',
         'UM_distinctid': '18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1699866830,1701078478,1702021135',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1702027138',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1703551438,1704533688,1704801285',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1705222985',
     }
 
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
-        'Content-Type': 'application/json',
-        # 'Cookie': 'SESSION=MmU4NjMxM2EtZDY2Yy00ZDEyLThhYjMtOGM4NDdlN2MxZWFi; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1699866830,1701078478,1702021135; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1702027138',
+        # Already added when you pass json=
+        # 'Content-Type': 'application/json',
+        # 'Cookie': 'SESSION=OTFiNmJhYTQtNWM3Yy00M2E4LWI5ZDUtNWVhYWYxYThmN2Mx; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1703551438,1704533688,1704801285; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1705222985',
         'Origin': 'https://www.jiuyangongshe.com',
         'Referer': 'https://www.jiuyangongshe.com/',
         'Sec-Fetch-Dest': 'empty',
         'Sec-Fetch-Mode': 'cors',
         'Sec-Fetch-Site': 'same-site',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'platform': '3',
-        'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'timestamp': '1702027138372',
-        'token': 'ec3b573c4a2d8ac91f9fadb2c026b17f',
+        'timestamp': '1705223025933',
+        'token': '00c9cca6bd143ed8dd702cd446499258',
     }
 
     # 在目录不存在时创建该目录，如果目录已经存在，则不会执行任何操作。
@@ -51,7 +52,7 @@ def get_res(date = '2023-05-26'):
     return response
 
 
-date = '2023-12-08'
+date = '2023-01-10'
 file_path = f'../../CSV/jiucaigongshe/ztjt/{date}/{date}.jpg'
 
 res = get_res(date)

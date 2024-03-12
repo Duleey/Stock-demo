@@ -7,21 +7,19 @@ author：邢不行
 """
 import pandas as pd
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
-pd.set_option('display.max_rows', 9000)  # 最多显示数据的行数
+pd.set_option('display.max_rows', 99999)  # 最多显示数据的行数
 pd.set_option('display.max_columns', 99999)
 
 
 # ===导入数据
 df = pd.read_hdf(
-    '/demo_quant/quantclass/xbx_stock_2019-pro/xbx_stock_2019/data/择时策略-回测/signals.h5',
+    '/Users/lvjianwei/Desktop/workspace/stock/Stock-demo/demo_quant/quantclass/xbx_stock_2019_pro/xbx_stock_2019/data/择时策略-回测/signals.h5',
     key='df')
-
-
 
 # ===由signal计算出实际的每天持有仓位
 # 在产生signal的k线结束的时候，进行买入
 df['signal'].fillna(method='ffill', inplace=True)
-df['signal'].fillna(value=0, inplace=True)  # 将初始行数的signal补全为0
+df['signal'].fillna(value=0, inplace=True)  # 将，始行数的signal补全为0
 df['pos'] = df['signal'].shift()
 df['pos'].fillna(value=0, inplace=True)  # 将初始行数的pos补全为0
 
@@ -49,5 +47,5 @@ df.drop(['signal'], axis=1, inplace=True)
 
 # ===将数据存入hdf文件中
 df.to_hdf(
-    '/Users/lvjianwei/Desktop/workspace/Stock-demo/demo/quantclass/xbx_stock_2019-pro/xbx_stock_2019/data/择时策略-回测/pos.h5',
+    '/Users/lvjianwei/Desktop/workspace/stock/Stock-demo/demo_quant/quantclass/xbx_stock_2019_pro/xbx_stock_2019/data/择时策略-回测/pos.h5',
     key='df', mode='w')

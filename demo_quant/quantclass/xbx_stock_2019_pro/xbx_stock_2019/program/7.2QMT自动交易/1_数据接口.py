@@ -30,6 +30,7 @@ sub_1min_id = xtdata.subscribe_quote(code, '1m', count=-1)  # 订阅某只股票
 print('分钟数据订阅号：', sub_1min_id)
 time.sleep(3)
 
+exit()
 # 取消订阅
 # xtdata.unsubscribe_quote(sub_tick_id)-
 

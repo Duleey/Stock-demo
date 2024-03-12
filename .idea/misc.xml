@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/2023-11-21.csv" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/ST板块--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/公告--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/其他--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/北交所--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/医疗医药--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/半导体--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/华为--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/地产--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/外贸--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/抖音概念--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/新能源汽车--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/机器人--2023-11-21.md" />
+    <file url="file://$PROJECT_DIR$/CSV/jiucaigongshe/ydjx/算力--2023-11-21.md" />
+  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.7" project-jdk-type="Python SDK" />
 </project>

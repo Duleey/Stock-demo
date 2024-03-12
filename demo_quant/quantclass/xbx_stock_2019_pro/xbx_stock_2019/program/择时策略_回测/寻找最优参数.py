@@ -5,10 +5,10 @@ author：邢不行
 
 通过循环，寻找择时策略的最优参数
 """
-from program.择时策略_回测.Functions import cal_fuquan_price, cal_zdt_price
-from program.择时策略_回测.Signals import simple_moving_average_signal, simple_moving_average_para_list
-from program.择时策略_回测.Position import position_at_close
-from program.择时策略_回测.Evaluate import equity_curve_with_long_at_close
+from demo_quant.quantclass.xbx_stock_2019_pro.xbx_stock_2019.program.择时策略_回测.Functions import cal_fuquan_price, cal_zdt_price
+from demo_quant.quantclass.xbx_stock_2019_pro.xbx_stock_2019.program.择时策略_回测.Signals import simple_moving_average_signal,simple_moving_average_para_list
+from demo_quant.quantclass.xbx_stock_2019_pro.xbx_stock_2019.program.择时策略_回测.Position import position_at_close
+from demo_quant.quantclass.xbx_stock_2019_pro.xbx_stock_2019.program.择时策略_回测.Evaluate import equity_curve_with_long_at_close
 import pandas as pd
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 pd.set_option('display.max_rows', 5000)  # 最多显示数据的行数

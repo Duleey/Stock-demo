@@ -9,8 +9,8 @@ author：邢不行
 如果针对单个股票，根据策略进行实盘交易
 """
 import easytrader
-from program.择时策略_实盘.Trade_Function import *
-from program.择时策略_实盘.Trade_Signal import *
+from .Trade_Function import *
+from .Trade_Signal import *
 
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 

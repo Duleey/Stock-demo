@@ -19,9 +19,9 @@ bloggers = {
     "雷雨季节": "1072107809",
     "花盆君": "5452093377",
     "合理出奇迹": "1708120238",
-    "十年七倍": "9821253825",
+    # "十年七倍": "9821253825",
     "周期合伙人": "6347482150",
-    "UESTC独钓寒江雪": "2377563498",
+    # "UESTC独钓寒江雪": "2377563498",
     "密探一号": "9999782882",
     "三生万物时": "1695241710",
     "洒脱的古龙": "7977236763",
@@ -30,7 +30,7 @@ bloggers = {
     "银河投递员": "1718809686",
     "双子窥天新号": "3849856324",
     "鲨鱼哥的视频逻辑": "7447535920",
-    "无心0000": "250386640",
+    "无心0000": "8069880019",
     "无鸣之辈-阿飞": "4253976756",
     "本股神": "1819336967",
     "轮回666": "8282709675",
@@ -44,47 +44,66 @@ bloggers = {
     "交易逻辑掌门": "2543519410",
     "准九": "4279190191",
     "TDK168": "3463940412",
-    "好习惯受用终生": "4015596010"
+    "好习惯受用终生": "4015596010",
+    "行中衡": "271398626",
+    "子渊如墨": "1905287979",
+    "睿钞观察": "7556690213",
+    "社会性动物": "6141010503",
+    "永远的冠军": "3666837602",
+    "金如意": "3658116657",
+    "谭校长专注投资理财": "1734585936",
+    "复利子": "6461763781",
+    "方知方觉": "6327693894",
+    "德玛小王": "4891560143",
+    "皈依凡尘": "8560060423",
+    "花花牛2016": "7824196356",
+    "啊流浪猫": "278149183",
+    "燕云2021": "1034624503",
+    "抢财猫": "3270941735",
+    "小盘教父": "8714944821",
+    "黑猫投资": "9603434293",
+    "神猫识顶底": "8350226665"
 }
 
 # 发言提示URL
 bloggers_url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}"
 
 # 请求头信息
+
 cookies = {
     'device_id': 'b113b3700ba6f60d2c110d9a9374ab5a',
     's': 'c81992ym9d',
     'bid': 'f2482796a6eda57a039c2760d1448818_lfgoelhg',
     'cookiesu': '251692352267798',
     'u': '3058190831',
-    'snbim_minify': 'true',
-    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1700699665',
-    'remember': '1',
-    'xq_a_token': 'dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec',
-    'xqat': 'dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec',
-    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAzODYyNDA2LCJjdG0iOjE3MDEzOTE3MjA4MDgsImNpZCI6ImQ5ZDBuNEFadXAifQ.jGdjTHxFFUQ5dkWOThoX2qTMCP9hI9n-mjKutUGa_iRPI8cLJCkugD69gs5v_T92iokJe2tPU6f6xdlHmexyCbVopT-UvX54I7TS7OWBk3CRFS34kY1l78pEfo0tKADp3abWgGqf8mb8ooW5dZo9XgSqSDjDYlmOypQ9FkLaaDazCKUiPe5uDQKpllS4gED2z9EJUhicH_0QZqvytGInhAtRcGaYc6Mv0r3OHwpItYBvqTSZOvhLq4MF-sG2F5Bk0lveSDDNowz3_D6L0kD32tqbgpOfttZOTqLmv6iphw9X1WeWXqOS-kL-kiXIi8zQ3tPtZOOM7KlR8V7JdHH69A',
-    'xq_r_token': '299f3b472218c80e451f65212a32220bc11bfaa4',
     'xq_is_login': '1',
-    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1701677658',
-    'acw_tc': '0bd17c4a17016806424312082ed76a6de460e9a25e1ef7596eddc6c393253c',
+    'snbim_minify': 'true',
+    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1708757682',
+    'xq_a_token': 'd54d1258c491f7059fd0520facd26feda026c390',
+    'xqat': 'd54d1258c491f7059fd0520facd26feda026c390',
+    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEyNDY5MjY3LCJjdG0iOjE3MDk4NzcyNjc1MDEsImNpZCI6ImQ5ZDBuNEFadXAifQ.kMUKxPfQ9o5JyB1HhgsVxKJg0MY2mxKdjEyIlsqFN93OfWBmogM8nwXfsWZ5f4QeO9ZlRhQOHoGUnD9EqeqQ0tDPVJ6CXamYTEMPZGl7Ho8GbDOCl1XCg2Jo327aONwlVla0YbT_GOLVFE-XhMXZKK5kb2RfwI-R2lEzyY-kOETolY962Qr8wyapHoZRp2235t4u8Cwa7l0binfcjs6GbNR7oOBvjKsgrQhlVV4WFmtMghCHYbOV2SDvuu95weey-u0AjFMa7dvPKSGbVMSJOsJiCzeMtSIPuCcCxeknDyhT_Y0kFEAr8VT3xrnU3C--5GzpYDTQC400j3KJvLYKXw',
+    'xq_r_token': '373cfdad2c783ec3da34526661f1d911126ba341',
     'is_overseas': '0',
+    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1710224109',
 }
 
 headers = {
-    'Accept': 'application/json, text/plain, */*',
-    'Accept-Language': 'zh-CN,zh;q=0.9',
-    'Connection': 'keep-alive',
-    # 'Cookie': 'device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; cookiesu=251692352267798; u=3058190831; snbim_minify=true; Hm_lvt_1db88642e346389874251b5a1eded6e3=1700699665; remember=1; xq_a_token=dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec; xqat=dddc9b5bd16cbc95abcd82c3bc71d83fe7ca62ec; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzAzODYyNDA2LCJjdG0iOjE3MDEzOTE3MjA4MDgsImNpZCI6ImQ5ZDBuNEFadXAifQ.jGdjTHxFFUQ5dkWOThoX2qTMCP9hI9n-mjKutUGa_iRPI8cLJCkugD69gs5v_T92iokJe2tPU6f6xdlHmexyCbVopT-UvX54I7TS7OWBk3CRFS34kY1l78pEfo0tKADp3abWgGqf8mb8ooW5dZo9XgSqSDjDYlmOypQ9FkLaaDazCKUiPe5uDQKpllS4gED2z9EJUhicH_0QZqvytGInhAtRcGaYc6Mv0r3OHwpItYBvqTSZOvhLq4MF-sG2F5Bk0lveSDDNowz3_D6L0kD32tqbgpOfttZOTqLmv6iphw9X1WeWXqOS-kL-kiXIi8zQ3tPtZOOM7KlR8V7JdHH69A; xq_r_token=299f3b472218c80e451f65212a32220bc11bfaa4; xq_is_login=1; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1701677658; acw_tc=0bd17c4a17016806424312082ed76a6de460e9a25e1ef7596eddc6c393253c; is_overseas=0',
-    'Origin': 'https://xueqiu.com',
-    'Referer': 'https://xueqiu.com/',
-    'Sec-Fetch-Dest': 'empty',
-    'Sec-Fetch-Mode': 'cors',
-    'Sec-Fetch-Site': 'same-site',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
-    'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+    'authority': 'stock.xueqiu.com',
+    'accept': '*/*',
+    'accept-language': 'zh-CN,zh;q=0.9',
+    # 'cookie': 'device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; cookiesu=251692352267798; u=3058190831; xq_is_login=1; snbim_minify=true; Hm_lvt_1db88642e346389874251b5a1eded6e3=1708757682; xq_a_token=d54d1258c491f7059fd0520facd26feda026c390; xqat=d54d1258c491f7059fd0520facd26feda026c390; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEyNDY5MjY3LCJjdG0iOjE3MDk4NzcyNjc1MDEsImNpZCI6ImQ5ZDBuNEFadXAifQ.kMUKxPfQ9o5JyB1HhgsVxKJg0MY2mxKdjEyIlsqFN93OfWBmogM8nwXfsWZ5f4QeO9ZlRhQOHoGUnD9EqeqQ0tDPVJ6CXamYTEMPZGl7Ho8GbDOCl1XCg2Jo327aONwlVla0YbT_GOLVFE-XhMXZKK5kb2RfwI-R2lEzyY-kOETolY962Qr8wyapHoZRp2235t4u8Cwa7l0binfcjs6GbNR7oOBvjKsgrQhlVV4WFmtMghCHYbOV2SDvuu95weey-u0AjFMa7dvPKSGbVMSJOsJiCzeMtSIPuCcCxeknDyhT_Y0kFEAr8VT3xrnU3C--5GzpYDTQC400j3KJvLYKXw; xq_r_token=373cfdad2c783ec3da34526661f1d911126ba341; is_overseas=0; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1710224109',
+    'origin': 'https://xueqiu.com',
+    'referer': 'https://xueqiu.com/',
+    'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-site',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
 }
+
+
 
 def get_bloggers_status(bloggers, commit_time, page=1):
     for blogger in bloggers:
@@ -113,7 +132,7 @@ def get_bloggers_status(bloggers, commit_time, page=1):
                 print(blogger)
 
         # 在目录不存在时创建该目录，如果目录已经存在，则不会执行任何操作。
-        directory = f'../../CSV/xueqiu/Bloggers/{0}'.format(commit_time)
+        directory = '../../CSV/xueqiu/Bloggers/{0}'.format(commit_time)
         os.makedirs(directory, exist_ok=True)
 
         # 定义Markdown文件名
@@ -128,4 +147,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2023-12-08', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2024-03-12', page=1)
