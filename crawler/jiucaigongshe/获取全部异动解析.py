@@ -13,31 +13,30 @@ def getRes(date='2023-07-28'):
     import requests
 
     cookies = {
-        'SESSION': 'YjY0MTBkNTAtMzU0Yy00ODEwLWJhZjEtYjI2NzlmNGU5OTI0',
+        'SESSION': 'NjFjZDU4MmUtNjczOS00ZTNiLTg1MmMtNTRhYTk1NDY3MTM4',
         'UM_distinctid': '18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1708931145',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1710151110',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1711272828',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1712406680',
     }
 
     headers = {
         'Accept': 'application/json, text/plain, */*',
         'Accept-Language': 'zh-CN,zh;q=0.9',
         'Connection': 'keep-alive',
-        # Already added when you pass json=
-        # 'Content-Type': 'application/json',
-        # 'Cookie': 'SESSION=YjY0MTBkNTAtMzU0Yy00ODEwLWJhZjEtYjI2NzlmNGU5OTI0; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1708931145; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1710151110',
+        # 'Content-Length': '0',
+        # 'Cookie': 'SESSION=NjFjZDU4MmUtNjczOS00ZTNiLTg1MmMtNTRhYTk1NDY3MTM4; UM_distinctid=18bc7f5670e34b-0ca1b3b473d9a1-17525634-168000-18bc7f5670f83f; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1711272828; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1712406680',
         'Origin': 'https://www.jiuyangongshe.com',
         'Referer': 'https://www.jiuyangongshe.com/',
         'Sec-Fetch-Dest': 'empty',
         'Sec-Fetch-Mode': 'cors',
         'Sec-Fetch-Site': 'same-site',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
         'platform': '3',
-        'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
+        'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"macOS"',
-        'timestamp': '1710151117047',
-        'token': '0fb4e90dc877c3f3934e387629472f4a',
+        'timestamp': '1712406690049',
+        'token': '4749bdf4457735645543435d084cdd82',
     }
 
     json_data = {
@@ -111,7 +110,7 @@ def csv_to_png(csv_path,title_name,date):
         print(IndexError)
 
 
-date = '2024-03-11'
+date = '2024-04-03'
 file_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.md'
 csv_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.csv'
 pic_path = f'../../CSV/jiucaigongshe/ydjx/{date}/{date}.png'

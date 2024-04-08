@@ -62,45 +62,62 @@ bloggers = {
     "抢财猫": "3270941735",
     "小盘教父": "8714944821",
     "黑猫投资": "9603434293",
-    "神猫识顶底": "8350226665"
+    "神猫识顶底": "8350226665",
+    "小股民c": "9465171998",
+    "临渊巷13号": "9136627432"
 }
 
+spBloggers = {
+    "神猫识顶底": "8350226665",
+    "TDK168": "3463940412",
+    "子渊如墨": "1905287979",
+    "慢而坚定-杯柄vcp": "9998407395",
+    "小盘教父": "8714944821",
+    "黑猫投资": "9603434293",
+    "小股民c": "9465171998",
+    "德玛小王": "4891560143",
+}
 # 发言提示URL
 bloggers_url = "https://xueqiu.com/v4/statuses/user_timeline.json?user_id={0}&page={1}"
 
 # 请求头信息
 
 cookies = {
-    'device_id': 'b113b3700ba6f60d2c110d9a9374ab5a',
-    's': 'c81992ym9d',
-    'bid': 'f2482796a6eda57a039c2760d1448818_lfgoelhg',
+    '__utmz': '1.1679307632.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
     'cookiesu': '251692352267798',
     'u': '3058190831',
     'xq_is_login': '1',
+    '__utma': '1.1859006477.1679307632.1710225210.1710311362.125',
+    'device_id': '2f7ac20a537c2ded20902d3cd5e51ff8',
+    's': 'by12f7uto3',
+    'bid': 'f2482796a6eda57a039c2760d1448818_lu2bqv1s',
+    'xq_a_token': 'cf0b5e98aab56abff210e1457a5c1835a7f3bb63',
+    'xqat': 'cf0b5e98aab56abff210e1457a5c1835a7f3bb63',
+    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEzNzg3Mjc2LCJjdG0iOjE3MTExOTUyNzY4MjgsImNpZCI6ImQ5ZDBuNEFadXAifQ.oUsyJzOIuyVfF0dXT7PZzgFxPoYoEGWX2Fyb_tbxuZd2YP_Xs07x1_6ysWZgD8OVS5hxpqU17-YABOtAqfsvho4JMXzmHpJh0u18IEAHYoy_dShhbOJCFXWsc567vryA7Z5NX6vKyYD32j7Xn4_W1WznLfDEJtxfZb0bPGr3bca0R3Rcak9wt8gCNJiEITQddZkEtQiePc4yO8YRo_7kV6BIVTaOf1_4LPSwbIPT2QJSgf4_nWyvonWFLy4nnF49yLgs9il0bKY8f-UOIlbHYIh0Kf5OQaxu1CzNVOm_fYjSLevQKF9zclyS0y1p2Prj7YpdejbOOuqi56uc8uxu3g',
+    'xq_r_token': 'feb719475c7c17eb07bc590fa80baeac2c8c4c3b',
     'snbim_minify': 'true',
-    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1708757682',
-    'xq_a_token': 'd54d1258c491f7059fd0520facd26feda026c390',
-    'xqat': 'd54d1258c491f7059fd0520facd26feda026c390',
-    'xq_id_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEyNDY5MjY3LCJjdG0iOjE3MDk4NzcyNjc1MDEsImNpZCI6ImQ5ZDBuNEFadXAifQ.kMUKxPfQ9o5JyB1HhgsVxKJg0MY2mxKdjEyIlsqFN93OfWBmogM8nwXfsWZ5f4QeO9ZlRhQOHoGUnD9EqeqQ0tDPVJ6CXamYTEMPZGl7Ho8GbDOCl1XCg2Jo327aONwlVla0YbT_GOLVFE-XhMXZKK5kb2RfwI-R2lEzyY-kOETolY962Qr8wyapHoZRp2235t4u8Cwa7l0binfcjs6GbNR7oOBvjKsgrQhlVV4WFmtMghCHYbOV2SDvuu95weey-u0AjFMa7dvPKSGbVMSJOsJiCzeMtSIPuCcCxeknDyhT_Y0kFEAr8VT3xrnU3C--5GzpYDTQC400j3KJvLYKXw',
-    'xq_r_token': '373cfdad2c783ec3da34526661f1d911126ba341',
+    'Hm_lvt_1db88642e346389874251b5a1eded6e3': '1711198388',
+    'acw_tc': '2760827617115953495463796ec1911343194c791c33e3354aec56a78e4b6e',
+    'smidV2': '20240328110910eed3e913fd3a3380b7a16717b8b63dab00e2473dc279c4290',
     'is_overseas': '0',
-    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1710224109',
+    'Hm_lpvt_1db88642e346389874251b5a1eded6e3': '1711595591',
+    '.thumbcache_f24b8bbe5a5934237bbc0eda20c1b6e7': 'P58hf1nU48YYUuBQOslQk5Un87H+IcJlBuPN37pT9UmJxs5KNaApCjGE2RhTAnbPlu8CVhUKJjN8PnLRGPz5pw%3D%3D',
 }
 
 headers = {
-    'authority': 'stock.xueqiu.com',
-    'accept': '*/*',
-    'accept-language': 'zh-CN,zh;q=0.9',
-    # 'cookie': 'device_id=b113b3700ba6f60d2c110d9a9374ab5a; s=c81992ym9d; bid=f2482796a6eda57a039c2760d1448818_lfgoelhg; cookiesu=251692352267798; u=3058190831; xq_is_login=1; snbim_minify=true; Hm_lvt_1db88642e346389874251b5a1eded6e3=1708757682; xq_a_token=d54d1258c491f7059fd0520facd26feda026c390; xqat=d54d1258c491f7059fd0520facd26feda026c390; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEyNDY5MjY3LCJjdG0iOjE3MDk4NzcyNjc1MDEsImNpZCI6ImQ5ZDBuNEFadXAifQ.kMUKxPfQ9o5JyB1HhgsVxKJg0MY2mxKdjEyIlsqFN93OfWBmogM8nwXfsWZ5f4QeO9ZlRhQOHoGUnD9EqeqQ0tDPVJ6CXamYTEMPZGl7Ho8GbDOCl1XCg2Jo327aONwlVla0YbT_GOLVFE-XhMXZKK5kb2RfwI-R2lEzyY-kOETolY962Qr8wyapHoZRp2235t4u8Cwa7l0binfcjs6GbNR7oOBvjKsgrQhlVV4WFmtMghCHYbOV2SDvuu95weey-u0AjFMa7dvPKSGbVMSJOsJiCzeMtSIPuCcCxeknDyhT_Y0kFEAr8VT3xrnU3C--5GzpYDTQC400j3KJvLYKXw; xq_r_token=373cfdad2c783ec3da34526661f1d911126ba341; is_overseas=0; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1710224109',
-    'origin': 'https://xueqiu.com',
-    'referer': 'https://xueqiu.com/',
-    'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    'Connection': 'keep-alive',
+    # 'Cookie': '__utmz=1.1679307632.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); cookiesu=251692352267798; u=3058190831; xq_is_login=1; __utma=1.1859006477.1679307632.1710225210.1710311362.125; device_id=2f7ac20a537c2ded20902d3cd5e51ff8; s=by12f7uto3; bid=f2482796a6eda57a039c2760d1448818_lu2bqv1s; xq_a_token=cf0b5e98aab56abff210e1457a5c1835a7f3bb63; xqat=cf0b5e98aab56abff210e1457a5c1835a7f3bb63; xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjMwNTgxOTA4MzEsImlzcyI6InVjIiwiZXhwIjoxNzEzNzg3Mjc2LCJjdG0iOjE3MTExOTUyNzY4MjgsImNpZCI6ImQ5ZDBuNEFadXAifQ.oUsyJzOIuyVfF0dXT7PZzgFxPoYoEGWX2Fyb_tbxuZd2YP_Xs07x1_6ysWZgD8OVS5hxpqU17-YABOtAqfsvho4JMXzmHpJh0u18IEAHYoy_dShhbOJCFXWsc567vryA7Z5NX6vKyYD32j7Xn4_W1WznLfDEJtxfZb0bPGr3bca0R3Rcak9wt8gCNJiEITQddZkEtQiePc4yO8YRo_7kV6BIVTaOf1_4LPSwbIPT2QJSgf4_nWyvonWFLy4nnF49yLgs9il0bKY8f-UOIlbHYIh0Kf5OQaxu1CzNVOm_fYjSLevQKF9zclyS0y1p2Prj7YpdejbOOuqi56uc8uxu3g; xq_r_token=feb719475c7c17eb07bc590fa80baeac2c8c4c3b; snbim_minify=true; Hm_lvt_1db88642e346389874251b5a1eded6e3=1711198388; acw_tc=2760827617115953495463796ec1911343194c791c33e3354aec56a78e4b6e; smidV2=20240328110910eed3e913fd3a3380b7a16717b8b63dab00e2473dc279c4290; is_overseas=0; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1711595591; .thumbcache_f24b8bbe5a5934237bbc0eda20c1b6e7=P58hf1nU48YYUuBQOslQk5Un87H+IcJlBuPN37pT9UmJxs5KNaApCjGE2RhTAnbPlu8CVhUKJjN8PnLRGPz5pw%3D%3D',
+    'Referer': 'https://xueqiu.com/',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'same-origin',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'elastic-apm-traceparent': '00-3e86e4b15da390e89e40b556c42437e6-d1d6dfbba074e16e-00',
+    'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"',
-    'sec-fetch-dest': 'empty',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-site': 'same-site',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
 }
 
 
@@ -147,4 +164,4 @@ def get_bloggers_status(bloggers, commit_time, page=1):
         with open(bloggers_file, "w", encoding="utf-8") as file:
             file.write(markdown_content)
 
-get_bloggers_status(bloggers=bloggers, commit_time='2024-03-12', page=1)
+get_bloggers_status(bloggers=bloggers, commit_time='2024-03-29', page=1)
