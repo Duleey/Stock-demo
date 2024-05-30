@@ -9,6 +9,10 @@ from urllib.request import urlopen  # python自带爬虫库
 import json  # python自带的json数据库
 from random import randint  # python自带的随机数库
 import pandas as pd
+import ssl
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 pd.set_option('display.max_rows', 5000)  # 最多显示数据的行数
 
@@ -35,7 +39,7 @@ def _random(n=16):
 # 参数
 stock_code = 'sh000001'  # 正常股票sz000001，指数sh000001, ETF sh510500
 k_type = 'day'  # day, week, month分别对用日线、周线、月线
-num = 30000  # 股票最多不能超过640，指数、etf等没有限制
+num = 640  # 股票最多不能超过640，指数、etf等没有限制
 
 # 构建url
 url = 'http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?_var=kline_%sqfq&param=%s,%s,,,%s,qfq&r=0.%s'
