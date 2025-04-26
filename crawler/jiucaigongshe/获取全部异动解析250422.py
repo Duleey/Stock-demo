@@ -8,8 +8,8 @@ from datetime import datetime
 def getRes(date='2023-07-28'):
     cookies = {
         'SESSION': 'MGQ2YTA2MjAtNTdkYy00Y2NjLWJhZTEtYjMyMGE2ZDFhNGJi',
-        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1743516596,1744114637,1745236931,1745323955',
-        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1745323955',
+        'Hm_lvt_58aa18061df7855800f2a1b32d6da7f4': '1745236931,1745323955,1745498117,1745654622',
+        'Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4': '1745654628',
     }
 
     headers = {
@@ -26,9 +26,10 @@ def getRes(date='2023-07-28'):
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-site',
-        'timestamp': '1745323961673',
-        'token': '2fb312c6f3db45abbc3adf1b014bdd45',
+        'timestamp': '1745654630985',
+        'token': 'f066f2656d65743cd02c6204108696e7',
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36',
+        # 'cookie': 'SESSION=MGQ2YTA2MjAtNTdkYy00Y2NjLWJhZTEtYjMyMGE2ZDFhNGJi; Hm_lvt_58aa18061df7855800f2a1b32d6da7f4=1745236931,1745323955,1745498117,1745654622; Hm_lpvt_58aa18061df7855800f2a1b32d6da7f4=1745654628',
     }
 
     json_data = {
@@ -184,4 +185,4 @@ def main(date='2025-04-22'):
     print(f"✅ 数据处理完成，目录: {output_dir}")
 
 if __name__ == "__main__":
-    main(date='2025-04-23')  # 可修改日期
+    main(date='2025-04-25')  # 可修改日期
